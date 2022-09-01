@@ -1,0 +1,27 @@
+<div class="container mt-3 mb-3" [formGroup]="opcaoGroup">
+  <h6>Opções</h6>
+  <div class="row g-3">
+    <div class="col-sm-8">
+      <div class="input-group">
+        <input formControlName="valor" type="text" class="form-control" />
+        <button
+          (click)="addOpcao()"
+          class="btn btn-outline-secondary"
+          type="button"
+        >
+          +
+          <i class="bi bi-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <ul class="list-group mt-3 mb-3">
+    <li
+      *ngFor="let opcao of questaoGroup.get('opcoes').value; let index = index"
+      class="list-group-item d-flex justify-content-between align-items-start"
+    >
+      {{ index + 1 }} - {{ opcao.valor }}
+      <button type="button" class="btn-close"></button>
+    </li>
+  </ul>
+</div>
